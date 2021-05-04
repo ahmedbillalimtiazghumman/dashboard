@@ -1,0 +1,51 @@
+<div class="mainContainer pt-5">
+    <div class="row">
+        <h2>View All Posts
+        </h2>
+    </div>
+
+    <div class="card mt-3">
+        <div class="table-responsive table-border-radius">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Post Title</th>
+                        <th>Body</th>
+                        <th>User Name</th>
+                        <th style="width: 150px;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="cursor: pointer;" id="tableRow" *ngFor="let item of posts">
+                        <td>
+                            <div class="imgsize">
+                                <img class="imgsize responsive-image rounded-circle" src="assets/profile_icon.svg">
+                            </div>
+                        </td>
+                        <td> <span [title]="item?.title">{{(item?.title?.length > 20)? ( item?.title |
+                                slice:0:40)+'..':(item.title)}}</span></td>
+                        <td> <span [title]="item?.body">{{(item?.body?.length > 30)? ( item?.body |
+                                slice:0:50)+'..':(item.body)}}</span></td>
+                        <td> {{item?.userName}} </td>
+                        <td>
+                            <div class="iconsSetting iconsDiv" >
+                                <div class="tableIcons" (click)="onclick()">
+                                    <img src="assets/iconView.svg">
+                                </div>
+                                <div class="tableIcons">
+                                    <img src="assets/iconEditDetails.svg">
+                                </div>
+                                <div class="tableIcons">
+                                    <img src="assets/iconDelete.svg">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
